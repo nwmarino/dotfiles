@@ -1,0 +1,16 @@
+# ~/.config/systemd/user/bt-head.service
+# 
+# systemctl --user enable --now bt-headset.service
+
+[Unit]
+Description=Auto-connect Bluetooth Headset
+After=bluetooth.target
+Requires=bluetooth.target
+
+[Service]
+ExecStart=/usr/bin/bluetoothctl connect AC:BF:71:62:6B:B2
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
+
